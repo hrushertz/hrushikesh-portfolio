@@ -1567,6 +1567,37 @@ hr.fancy::before {
 	left             : 50%;
 }
 
+/* quotes carousel */
+.quotes-carousel {
+	position: relative;
+	width: 100%;
+}
+
+.quote-slide {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	transition: opacity 0.8s ease-in-out;
+	pointer-events: none;
+}
+
+.quote-slide.active {
+	opacity: 1;
+	position: relative;
+	pointer-events: auto;
+}
+
+@keyframes fadeInOut {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 .drop-cap:first-letter {
 	float         : left;
 	font-family   : var(--font-1);
@@ -3187,7 +3218,7 @@ td:last-child {
  * ------------------------------------------------------------------- */
 .s-header {
 	--header-height: 80px;
-	--logo-width   : 9.6rem;
+	--logo-width   : 180px;
 	--box-shadow   : 0 1px 1px rgba(0, 0, 0, 0.02),
 		             0 2px 2px rgba(0, 0, 0, 0.02),
 		             0 4px 4px rgba(0, 0, 0, 0.02),
@@ -3368,7 +3399,7 @@ td:last-child {
  * ------------------------------------------------------------------- */
 @media screen and (max-width: 900px) {
 	.s-header {
-		--logo-width: 10rem;
+		--logo-width: 140px;
 		top         : var(--vspace-0_25);
 	}
 
@@ -3631,7 +3662,8 @@ td:last-child {
 }
 
 .s-intro__content-title {
-	font-size    : clamp(5rem, 7vw, 11.6rem);
+	/* reduced size: keeps responsive scaling but lowers min and max */
+	font-size    : clamp(3.2rem, 5.2vw, 8rem);
 	line-height  : 1;
 	margin-top   : 0;
 	margin-bottom: var(--vspace-1_25);
@@ -3854,7 +3886,8 @@ td:last-child {
 	}
 
 	.s-intro__content-title {
-		font-size: clamp(4rem, 10vw, 10.4rem);
+		/* reduced size for smaller viewports */
+		font-size: clamp(2.8rem, 6.5vw, 7rem);
 	}
 
 	.s-intro__content-title br {

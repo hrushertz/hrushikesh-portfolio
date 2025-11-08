@@ -370,6 +370,38 @@
     }; // end ssMoveTo
 
 
+   /* quotes carousel
+    * ------------------------------------------------------ */
+    const ssQuotesCarousel = function() {
+
+        const carousel = document.querySelector('#quotesCarousel');
+        if (!carousel) return;
+
+        const slides = carousel.querySelectorAll('.quote-slide');
+        if (slides.length <= 1) return;
+
+        let currentIndex = 0;
+        const rotationInterval = 5000; // Change quote every 5 seconds
+
+        const showSlide = (index) => {
+            // Remove active class from all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            
+            // Add active class to current slide
+            slides[index].classList.add('active');
+        };
+
+        const nextSlide = () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        };
+
+        // Start the rotation
+        setInterval(nextSlide, rotationInterval);
+
+    }; // end ssQuotesCarousel
+
+
    /* Initialize
     * ------------------------------------------------------ */
     (function ssInit() {
@@ -380,6 +412,7 @@
         ssMailChimpForm();
         ssAlertBoxes();
         ssMoveTo();
+        ssQuotesCarousel();
 
     })();
 
